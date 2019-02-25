@@ -1,0 +1,70 @@
+
+<style>
+h1{
+  text-align:center;
+  color:black;
+  background: blue;
+}
+.card-img-top{
+  height:200px;
+  weight:100px;
+}
+footer{
+  background: black;
+  padding:15px;
+}
+footer p{
+  text-align:center;
+  color:white;
+}
+</style>
+<div class="container">   
+<% if !flash[:notice].blank? %>   
+   <div>   
+      <%= flash[:notice] %>   
+   </div>   
+<% end %>   
+  <h1><b>Jorah Movie Market Online Company Ltd<b></h1>
+<br>
+<br>   
+  
+<center><b><u><h4><%= link_to "New Movie", new_movie_path %></h4></u></b></center>   
+<br>   
+<br>   
+    
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+      <% @movies.each do |movie| %> 
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+          <img src="<%= movie.attachment %>" class="card-img-top" alt="card img cap"> 
+      
+            <div class="card-body">
+              <p class="card-text"><b>Title:</b><%= movie.title %><br><b>category:</b><%= movie.category %><br><b>Year:</b><%= movie.year %><br><b>Price:</b><%= movie.price %></p>
+             <b><u><%= link_to "Download", movie.attachment_url %></u></b>
+               <b><u><%= link_to "Delete",  movie, method: :delete, confirm: "Are you sure you want to delete #{movie.attachment}?" %></u></b>
+              </div>
+            </div>
+          </div>
+              <% end %>   
+        </div>
+        <br>
+        <br>
+    
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+      <a href="#"> Orginal Movie</a>
+    </p>
+    <p>Movie Album is Full &copy; </p>
+    <p>Online movies market in rwanda &copy; 2019</p>
+    <p>&copyright and designed by Rafiki Lambert @ 2019</p>
+  </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script></body>
+
+
